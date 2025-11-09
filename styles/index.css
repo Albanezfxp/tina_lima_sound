@@ -1,0 +1,231 @@
+/*
+Arquivo: styles.css
+Estilos modernos e elegantes para a landing page da artista Tina Lima.
+Totalmente responsivo (Mobile-First).
+*/
+
+/* Variáveis CSS para cores e fontes */
+:root {
+    --deep-blue: #0A192F; 
+    --navy-light: #172A46; 
+    --hover-bg: #223C62; 
+    --aqua-vibrant: #64FFDA; 
+    --text-primary: #CCD6F6; 
+    --text-secondary: #8892B0; 
+    --spotify-green: #1DB954; 
+    --youtube-red: #FF0000; 
+    --montserrat-font: 'Montserrat', sans-serif;
+}
+
+/* Estilos básicos (Mobile-First) */
+body {
+    font-family: var(--montserrat-font);
+    background-color: var(--deep-blue);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha o conteúdo mais ao topo em telas grandes, mas mantém flex */
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px 10px 20px 10px; /* Ajuste o padding geral */
+    line-height: 1.6;
+    box-sizing: border-box; /* Garante que padding não adicione largura extra */
+}
+
+/* Container principal */
+.container {
+    width: 95%; /* Ocupa mais largura em mobile */
+    max-width: 400px;
+    text-align: center;
+    padding: 25px; /* Levemente menor em mobile */
+    background-color: var(--navy-light);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    margin-bottom: 30px; 
+    box-sizing: border-box;
+}
+
+/* Ícone do artista */
+.artist-icon {
+    width: 100px; /* Levemente menor em mobile */
+    height: 100px; 
+    background-image: url('https://i9.ytimg.com/s_p/OLAK5uy_kuha1cuIl41lUIl9SN3rFwbAMozh2JsvA/maxresdefault.jpg?sqp=CPyiwsgGir7X7AMICNSg5McGEAE=&rs=AOn4CLDxTZS_7p4jaTd_01kxhoRJWdskyQ&v=1761153108');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin: 0 auto 25px auto; /* Margem menor em mobile */
+    border: 3px solid var(--aqua-vibrant); /* Borda mais fina em mobile */
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.6);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.artist-icon:hover {
+    transform: scale(1.08);
+}
+
+/* Título e Subtítulo */
+h1 {
+    font-size: 2em; /* Tamanho ajustado para mobile */
+    margin-bottom: 5px;
+    color: var(--aqua-vibrant);
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(100, 255, 218, 0.5);
+}
+
+h2 {
+    font-size: 1em; /* Tamanho ajustado para mobile */
+    font-weight: 400;
+    margin-bottom: 35px; /* Margem ajustada */
+    color: var(--text-secondary);
+}
+
+/* Estilo para os botões de streaming */
+.streaming-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--deep-blue);
+    border: 1px solid var(--navy-light);
+    border-radius: 10px;
+    padding: 12px 18px; /* Padding ajustado */
+    margin-bottom: 15px; /* Margem ajustada */
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.streaming-link:hover {
+    background-color: var(--hover-bg);
+    transform: translateY(-3px); /* Elevação sutil */
+    border-color: var(--aqua-vibrant);
+}
+
+.platform-info {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilização dos logos */
+.platform-logo {
+    width: 30px; /* Tamanho ajustado */
+    height: 30px;
+    margin-right: 15px; /* Margem ajustada */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em; /* Tamanho do ícone ajustado */
+    color: white; 
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Regras para IMG dentro de platform-logo (para suportar logos inseridos via <img>) */
+.platform-logo img {
+    width: 100%; /* Ajusta a imagem ao tamanho do container */
+    height: 100%;
+    border-radius: 50%; /* Mantém a forma circular */
+    object-fit: cover;
+}
+
+/* Se você estiver usando imagens específicas para o YouTube ou Spotify: */
+/* REMOVA ESSES SELETORES SE ESTIVER USANDO FONT AWESOME/COR PURA */
+/*
+.platform-logo.spotify-icon { background-color: var(--spotify-green); }
+.platform-logo.youtube-icon { background-color: var(--youtube-red); }
+*/
+
+
+/* Botão de Ação "Ouvir/Assistir" */
+.play-button {
+    background-color: var(--navy-light);
+    color: var(--aqua-vibrant);
+    padding: 8px 15px; /* Padding ajustado */
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9em; /* Tamanho ajustado */
+    border: 1px solid var(--aqua-vibrant);
+    box-shadow: 0 2px 8px rgba(100, 255, 218, 0.3);
+    transition: all 0.3s ease;
+}
+
+.streaming-link:hover .play-button {
+    background-color: var(--aqua-vibrant);
+    color: var(--deep-blue);
+    box-shadow: 0 0 12px var(--aqua-vibrant);
+}
+
+/* Estilização do Rodapé "Powered by" */
+.powered-by {
+    font-size: 0.75em; /* Fonte menor em mobile */
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.company-name {
+    font-size: 0.8em;
+    letter-spacing: 2px;
+    color: var(--aqua-vibrant);
+    font-weight: 700;
+    display: block;
+    margin-top: 5px;
+}
+
+/* --- MEDIA QUERY: OTIMIZAÇÃO PARA TELAS MAIORES/DESKTOPS (a partir de 600px) --- */
+@media (min-width: 600px) {
+    body {
+        /* Centraliza o conteúdo verticalmente em telas maiores */
+        justify-content: center;
+        padding-top: 50px;
+    }
+
+    .container {
+        padding: 40px; /* Mais padding para desktops */
+        max-width: 450px; /* Permite que seja um pouco mais largo */
+    }
+
+    .artist-icon {
+        width: 120px;
+        height: 120px;
+        border: 4px solid var(--aqua-vibrant); /* Borda mais grossa */
+        margin-bottom: 30px;
+    }
+
+    h1 {
+        font-size: 2.6em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+        margin-bottom: 50px;
+    }
+
+    .streaming-link {
+        padding: 15px 20px;
+        transform: translateY(0);
+        margin-bottom: 25px;
+    }
+    
+    .streaming-link:hover {
+        transform: translateY(-5px); /* Efeito de elevação total para desktop */
+    }
+
+    .platform-logo {
+        width: 35px;
+        height: 35px;
+        font-size: 1.5em;
+    }
+
+    .play-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .powered-by {
+        font-size: 0.8em;
+    }
+}
