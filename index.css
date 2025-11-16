@@ -17,47 +17,58 @@ Totalmente responsivo (Mobile-First).
     --montserrat-font: 'Montserrat', sans-serif;
 }
 
-/* Estilos básicos (Mobile-First) */
+/* Reset e estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: var(--montserrat-font);
     background-color: var(--deep-blue);
     color: var(--text-primary);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Alinha o conteúdo mais ao topo em telas grandes, mas mantém flex */
+    justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
-    padding: 30px 10px 20px 10px; /* Ajuste o padding geral */
+    padding: 30px 10px 20px 10px;
     line-height: 1.6;
-    box-sizing: border-box; /* Garante que padding não adicione largura extra */
 }
 
 /* Container principal */
 .container {
-    width: 95%; /* Ocupa mais largura em mobile */
+    width: 95%;
     max-width: 400px;
     text-align: center;
-    padding: 25px; /* Levemente menor em mobile */
+    padding: 25px;
     background-color: var(--navy-light);
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    margin-bottom: 30px; 
-    box-sizing: border-box;
+    margin-bottom: 30px;
 }
 
-/* Ícone do artista */
+/* Ícone do artista - CORRIGIDO */
 .artist-icon {
-    width: 100px; /* Levemente menor em mobile */
-    height: 100px; 
-    background-image: url('https://i9.ytimg.com/s_p/OLAK5uy_kuha1cuIl41lUIl9SN3rFwbAMozh2JsvA/maxresdefault.jpg?sqp=CPyiwsgGir7X7AMICNSg5McGEAE=&rs=AOn4CLDxTZS_7p4jaTd_01kxhoRJWdskyQ&v=1761153108');
-    background-size: cover;
-    background-position: center;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    margin: 0 auto 25px auto; /* Margem menor em mobile */
-    border: 3px solid var(--aqua-vibrant); /* Borda mais fina em mobile */
+    margin: 0 auto 25px auto;
+    border: 3px solid var(--aqua-vibrant);
     box-shadow: 0 0 20px rgba(100, 255, 218, 0.6);
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden; /* IMPORTANTE: garante que a imagem não ultrapasse o círculo */
+    position: relative;
+}
+
+.artist-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* CORREÇÃO PRINCIPAL: faz a imagem preencher o container */
+    object-position: center; /* Garante que o rosto fique centralizado */
+    border-radius: 50%; /* Mantém a forma circular */
+    display: block; /* Remove espaços em branco abaixo da imagem */
 }
 
 .artist-icon:hover {
@@ -66,7 +77,7 @@ body {
 
 /* Título e Subtítulo */
 h1 {
-    font-size: 2em; /* Tamanho ajustado para mobile */
+    font-size: 2em;
     margin-bottom: 5px;
     color: var(--aqua-vibrant);
     font-weight: 700;
@@ -74,9 +85,9 @@ h1 {
 }
 
 h2 {
-    font-size: 1em; /* Tamanho ajustado para mobile */
+    font-size: 1em;
     font-weight: 400;
-    margin-bottom: 35px; /* Margem ajustada */
+    margin-bottom: 35px;
     color: var(--text-secondary);
 }
 
@@ -88,8 +99,8 @@ h2 {
     background-color: var(--deep-blue);
     border: 1px solid var(--navy-light);
     border-radius: 10px;
-    padding: 12px 18px; /* Padding ajustado */
-    margin-bottom: 15px; /* Margem ajustada */
+    padding: 12px 18px;
+    margin-bottom: 15px;
     text-decoration: none;
     color: var(--text-primary);
     transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
@@ -98,7 +109,7 @@ h2 {
 
 .streaming-link:hover {
     background-color: var(--hover-bg);
-    transform: translateY(-3px); /* Elevação sutil */
+    transform: translateY(-3px);
     border-color: var(--aqua-vibrant);
 }
 
@@ -107,44 +118,34 @@ h2 {
     align-items: center;
 }
 
-/* Estilização dos logos */
+/* Estilização dos logos das plataformas */
 .platform-logo {
-    width: 30px; /* Tamanho ajustado */
+    width: 30px;
     height: 30px;
-    margin-right: 15px; /* Margem ajustada */
+    margin-right: 15px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.3em; /* Tamanho do ícone ajustado */
-    color: white; 
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* Garante que as imagens não saiam do círculo */
 }
 
-/* Regras para IMG dentro de platform-logo (para suportar logos inseridos via <img>) */
 .platform-logo img {
-    width: 100%; /* Ajusta a imagem ao tamanho do container */
+    width: 100%;
     height: 100%;
-    border-radius: 50%; /* Mantém a forma circular */
-    object-fit: cover;
+    object-fit: cover; /* Faz as logos preencherem o círculo */
+    border-radius: 50%;
 }
-
-/* Se você estiver usando imagens específicas para o YouTube ou Spotify: */
-/* REMOVA ESSES SELETORES SE ESTIVER USANDO FONT AWESOME/COR PURA */
-/*
-.platform-logo.spotify-icon { background-color: var(--spotify-green); }
-.platform-logo.youtube-icon { background-color: var(--youtube-red); }
-*/
-
 
 /* Botão de Ação "Ouvir/Assistir" */
 .play-button {
     background-color: var(--navy-light);
     color: var(--aqua-vibrant);
-    padding: 8px 15px; /* Padding ajustado */
+    padding: 8px 15px;
     border-radius: 8px;
     font-weight: 700;
-    font-size: 0.9em; /* Tamanho ajustado */
+    font-size: 0.9em;
     border: 1px solid var(--aqua-vibrant);
     box-shadow: 0 2px 8px rgba(100, 255, 218, 0.3);
     transition: all 0.3s ease;
@@ -158,7 +159,7 @@ h2 {
 
 /* Estilização do Rodapé "Powered by" */
 .powered-by {
-    font-size: 0.75em; /* Fonte menor em mobile */
+    font-size: 0.75em;
     color: var(--text-secondary);
     letter-spacing: 1px;
     text-align: center;
@@ -178,20 +179,19 @@ h2 {
 /* --- MEDIA QUERY: OTIMIZAÇÃO PARA TELAS MAIORES/DESKTOPS (a partir de 600px) --- */
 @media (min-width: 600px) {
     body {
-        /* Centraliza o conteúdo verticalmente em telas maiores */
         justify-content: center;
         padding-top: 50px;
     }
 
     .container {
-        padding: 40px; /* Mais padding para desktops */
-        max-width: 450px; /* Permite que seja um pouco mais largo */
+        padding: 40px;
+        max-width: 450px;
     }
 
     .artist-icon {
-        width: 120px;
-        height: 120px;
-        border: 4px solid var(--aqua-vibrant); /* Borda mais grossa */
+        width: 140px; /* Um pouco maior no desktop */
+        height: 140px;
+        border: 4px solid var(--aqua-vibrant);
         margin-bottom: 30px;
     }
 
@@ -206,18 +206,16 @@ h2 {
 
     .streaming-link {
         padding: 15px 20px;
-        transform: translateY(0);
         margin-bottom: 25px;
     }
     
     .streaming-link:hover {
-        transform: translateY(-5px); /* Efeito de elevação total para desktop */
+        transform: translateY(-5px);
     }
 
     .platform-logo {
         width: 35px;
         height: 35px;
-        font-size: 1.5em;
     }
 
     .play-button {
@@ -227,5 +225,21 @@ h2 {
 
     .powered-by {
         font-size: 0.8em;
+    }
+}
+
+/* --- MEDIA QUERY PARA TELAS MUITO PEQUENAS --- */
+@media (max-width: 360px) {
+    .artist-icon {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8em;
     }
 }
