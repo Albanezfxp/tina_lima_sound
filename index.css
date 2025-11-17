@@ -29,7 +29,6 @@ Paleta: Preto e Cinza Elegante
 body {
     font-family: var(--montserrat-font);
     background: linear-gradient(135deg, var(--deep-black) 0%, var(--charcoal) 100%);
-    color: var(--off-white);
     display: flex;
     flex-direction: column;
     justify-content: center;
