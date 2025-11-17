@@ -2,16 +2,17 @@
 Arquivo: styles.css
 Estilos modernos e elegantes para a landing page da artista Tina Lima.
 Totalmente responsivo (Mobile-First).
+Paleta: Laranja e Lilas
 */
 
-/* Variáveis CSS para cores e fontes */
+/* Variáveis CSS para cores e fontes - NOVA PALETA LARANJA/LILAS */
 :root {
-    --deep-blue: #0A192F; 
-    --navy-light: #172A46; 
-    --hover-bg: #223C62; 
-    --aqua-vibrant: #64FFDA; 
-    --text-primary: #CCD6F6; 
-    --text-secondary: #8892B0; 
+    --deep-purple: #2D1B69; 
+    --light-purple: #4A2F8C; 
+    --hover-bg: #5A3CA6; 
+    --vibrant-orange: #FF6B35; 
+    --text-primary: #F8F7FF; 
+    --text-secondary: #D0C6FF; 
     --spotify-green: #1DB954; 
     --youtube-red: #FF0000; 
     --montserrat-font: 'Montserrat', sans-serif;
@@ -26,11 +27,11 @@ Totalmente responsivo (Mobile-First).
 
 body {
     font-family: var(--montserrat-font);
-    background-color: var(--deep-blue);
+    background: linear-gradient(135deg, var(--deep-purple) 0%, #1A103F 100%);
     color: var(--text-primary);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 30px 10px 20px 10px;
@@ -39,49 +40,54 @@ body {
 
 /* Container principal */
 .container {
-    width: 95%;
+    width: 100%;
     max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     padding: 25px;
-    background-color: var(--navy-light);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    background-color: var(--light-purple);
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(45, 27, 105, 0.5);
     margin-bottom: 30px;
+    border: 1px solid rgba(255, 107, 53, 0.2);
 }
 
-/* Ícone do artista - CORRIGIDO */
+/* Ícone do artista */
 .artist-icon {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     margin: 0 auto 25px auto;
-    border: 3px solid var(--aqua-vibrant);
-    box-shadow: 0 0 20px rgba(100, 255, 218, 0.6);
+    border: 3px solid var(--vibrant-orange);
+    box-shadow: 0 0 25px rgba(255, 107, 53, 0.6);
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    overflow: hidden; /* IMPORTANTE: garante que a imagem não ultrapasse o círculo */
+    overflow: hidden;
     position: relative;
 }
 
 .artist-icon img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* CORREÇÃO PRINCIPAL: faz a imagem preencher o container */
-    object-position: center; /* Garante que o rosto fique centralizado */
-    border-radius: 50%; /* Mantém a forma circular */
-    display: block; /* Remove espaços em branco abaixo da imagem */
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    display: block;
 }
 
 .artist-icon:hover {
     transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.8);
 }
 
 /* Título e Subtítulo */
 h1 {
     font-size: 2em;
     margin-bottom: 5px;
-    color: var(--aqua-vibrant);
+    color: var(--vibrant-orange);
     font-weight: 700;
-    text-shadow: 0 0 5px rgba(100, 255, 218, 0.5);
+    text-shadow: 0 0 8px rgba(255, 107, 53, 0.4);
 }
 
 h2 {
@@ -96,21 +102,22 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--deep-blue);
-    border: 1px solid var(--navy-light);
-    border-radius: 10px;
+    background: linear-gradient(135deg, var(--deep-purple) 0%, #3A2478 100%);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 12px;
     padding: 12px 18px;
     margin-bottom: 15px;
     text-decoration: none;
     color: var(--text-primary);
-    transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(45, 27, 105, 0.4);
 }
 
 .streaming-link:hover {
-    background-color: var(--hover-bg);
+    background: linear-gradient(135deg, var(--hover-bg) 0%, #4A2F8C 100%);
     transform: translateY(-3px);
-    border-color: var(--aqua-vibrant);
+    border-color: var(--vibrant-orange);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
 }
 
 .platform-info {
@@ -127,34 +134,38 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
-    overflow: hidden; /* Garante que as imagens não saiam do círculo */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .platform-logo img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Faz as logos preencherem o círculo */
+    object-fit: cover;
     border-radius: 50%;
 }
 
 /* Botão de Ação "Ouvir/Assistir" */
 .play-button {
-    background-color: var(--navy-light);
-    color: var(--aqua-vibrant);
+    background: rgba(255, 107, 53, 0.1);
+    color: var(--vibrant-orange);
     padding: 8px 15px;
     border-radius: 8px;
     font-weight: 700;
     font-size: 0.9em;
-    border: 1px solid var(--aqua-vibrant);
-    box-shadow: 0 2px 8px rgba(100, 255, 218, 0.3);
+    border: 1px solid var(--vibrant-orange);
+    box-shadow: 0 2px 10px rgba(255, 107, 53, 0.2);
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .streaming-link:hover .play-button {
-    background-color: var(--aqua-vibrant);
-    color: var(--deep-blue);
-    box-shadow: 0 0 12px var(--aqua-vibrant);
+    background: var(--vibrant-orange);
+    color: var(--deep-purple);
+    box-shadow: 0 0 15px var(--vibrant-orange);
+    transform: scale(1.05);
 }
 
 /* Estilização do Rodapé "Powered by" */
@@ -170,10 +181,11 @@ h2 {
 .company-name {
     font-size: 0.8em;
     letter-spacing: 2px;
-    color: var(--aqua-vibrant);
+    color: var(--vibrant-orange);
     font-weight: 700;
     display: block;
     margin-top: 5px;
+    text-shadow: 0 0 5px rgba(255, 107, 53, 0.3);
 }
 
 /* --- MEDIA QUERY: OTIMIZAÇÃO PARA TELAS MAIORES/DESKTOPS (a partir de 600px) --- */
@@ -181,17 +193,19 @@ h2 {
     body {
         justify-content: center;
         padding-top: 50px;
+        background: linear-gradient(135deg, var(--deep-purple) 0%, #2D1B69 50%, #1A103F 100%);
     }
 
     .container {
         padding: 40px;
         max-width: 450px;
+        box-shadow: 0 20px 50px rgba(45, 27, 105, 0.6);
     }
 
     .artist-icon {
-        width: 140px; /* Um pouco maior no desktop */
+        width: 140px;
         height: 140px;
-        border: 4px solid var(--aqua-vibrant);
+        border: 4px solid var(--vibrant-orange);
         margin-bottom: 30px;
     }
 
@@ -242,4 +256,23 @@ h2 {
     h1 {
         font-size: 1.8em;
     }
+    
+    .streaming-link {
+        padding: 10px 15px;
+    }
+}
+
+/* Efeitos de brilho sutil */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--vibrant-orange), var(--light-purple), var(--vibrant-orange));
+    border-radius: 18px;
+    z-index: -1;
+    opacity: 0.1;
+    filter: blur(5px);
 }
